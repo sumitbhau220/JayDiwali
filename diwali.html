@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>दिवाळीच्या हार्दिक शुभेच्छा!</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+        body {
+            background: linear-gradient(135deg, #2c0e3a, #5a1a7a);
+            color: #fff;
+            font-family: 'Noto Sans', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            overflow-x: hidden;
+            position: relative;
+        }
+        .falling-element {
+            position: absolute;
+            top: -50px;
+            animation-name: fall;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            pointer-events: none;
+            z-index: 0;
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.5));
+            animation-duration: var(--animation-duration, 8s);
+            animation-delay: var(--animation-delay, 0s);
+        }
+        .falling-element.lotus { font-size: 30px; color: #f77fbe; }
+        .falling-element.firework, .firework-burst { font-size: 25px; color: #ffd700; opacity: 0.8; }
+        @keyframes fall {
+            0% { transform: translate(0, 0) rotate(0deg); opacity: 1; }
+            100% { transform: translate(var(--end-x), 110vh) rotate(720deg); opacity: 0; }
+        }
+        .container {
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        .diwali-image { max-width: 100%; border-radius: 10px; margin-bottom: 20px; }
+        .sender-name {
+            font-size: 1.5em;
+            color: #ffd700;
+            margin-bottom: 10px;
+            animation: glow 1.5s infinite alternate;
+        }
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ffd700, 0 0 20px #ffc400; }
+            to { text-shadow: 0 0 20px #ffae00, 0 0 30px #ff8c00; }
+        }
+        #shareChain {
+            font-size: 0.9em;
+            color: #f0f0f0;
+            margin-bottom: 20px;
+        }
+        .input-area p { margin-bottom: 10px; font-size: 1.1em; }
+        #viewerName {
+            width: 80%;
+            padding: 12px;
+            border-radius: 8px;
+            border: 2px solid #ffd700;
+            font-size: 1em;
+            text-align: center;
+            background-color: #f0f0f0;
+            color: #333;
+        }
+        .share-buttons {
+            margin-top: 25px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        .share-buttons button {
+            padding: 12px 15px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1em;
+            color: #fff;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+        }
+        .share-buttons button:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+        }
+        .share-buttons img { width: 24px; height: 24px; }
+        .whatsapp { background-color: #25D366; }
+        .facebook { background-color: #1877F2; }
+        .x-share { background-color: #000000; }
+        .threads { background-color: #000000; }
+        .instagram { background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%); }
+        .telegram { background-color: #229ED9; }
+        /* Kandil and Diyas Animation */
+        .kandil-wrap { width: 120px; position: absolute; left: 10px; top: 20px; z-index: 10; transform-origin: 60px 0px; animation: swing 3s ease-in-out infinite alternate; }
+        @keyframes swing { 0% { transform: rotate(-8deg);} 100% { transform: rotate(8deg);}}
+        .kandil { width: 60px; height: 80px; background: #ffc107; border-radius: 10px 10px 30px 30px; border: 1px solid #ff9800; margin: 0 auto; position: relative; box-shadow: 0 5px 10px #ffd54f99; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; }
+        .kandil .maa-img { width: 54px; height: 54px; background: #fff; border-radius: 50%; overflow: hidden; margin-top: 18px; border: 2px solid #ff9800; box-shadow: 0 0 10px #ffffff99; }
+        .kandil .maa-img img { width: 100%; height: 100%; object-fit: cover; }
+        .kandil-diyas { display: flex; justify-content: space-between; width: 100%; margin: 0 0 8px 0; }
+        .diya { width: 18px; height: 22px; position: relative; margin: 0 3px; }
+        .diya .flame { position: absolute; top: -10px; left: 3px; width: 12px; height: 12px; background: radial-gradient(ellipse at center, #ffd700 0%, #ffaa00 70%, transparent 100%); border-radius: 50% 60% 50% 65%/65% 50% 100% 45%; animation: flicker 1s infinite alternate; opacity: 0.83; }
+        @keyframes flicker { 0% { transform: scale(1.08) rotate(2deg);} 100% { transform: scale(1) rotate(-2deg);}}
+        .diya .base { width: 16px; height: 8px; background: #a06031; border-radius: 0 0 20px 20px; position: absolute; top: 4px; left: 1px; box-shadow: 0 2px 4px #3e210ca8; }
+        /* Firecracker Section */
+        .firework-cracker { position: absolute; right: 20px; top: 40px; width: 54px; z-index: 15; cursor: pointer; }
+        .crackers-img { width: 54px; }
+        .firework-burst { position: absolute; left: 0; top: 0; font-size: 36px; color: #fff176; opacity: 0; animation: burst 0.7s forwards; pointer-events: none; }
+        @keyframes burst { 0% { transform: scale(0.5); opacity: 0.8;} 60% { transform: scale(1.2); opacity: 1;} 100% { transform: scale(2); opacity: 0; }}
+    </style>
+</head>
+<body>
+    <div class="kandil-wrap">
+        <div class="kandil">
+            <div class="maa-img">
+                <img src="Lucid_Origin_A_highly_stylized_lowpoly_3D_render_of_fireworks__1.jpg" alt="Maa"/>
+            </div>
+            <div class="kandil-diyas">
+                <div class="diya"><div class="flame"></div><div class="base"></div></div>
+                <div class="diya"><div class="flame"></div><div class="base"></div></div>
+                <div class="diya"><div class="flame"></div><div class="base"></div></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="firework-cracker" id="crackers">
+        <img class="crackers-img" src="Lucid_Origin_a_vibrant_and_dynamic_fire_cracker_with_a_predomi_3.jpg" alt="Firecrackers"/>
+        <span class="firework-burst" id="burst1">🎇</span>
+        <span class="firework-burst" id="burst2" style="left:25px; top:8px;">✨</span>
+        <audio id="crackSound" src="nuclear-explosion-386181.mp3"></audio>
+    </div>
+
+    <div class="container">
+        <img src="Lucid_Origin_Goddess_Lakshmi_is_depicted_in_a_serene_and_vibra_1.jpg" alt="Diwali Wishes in Marathi" class="diwali-image" />
+        <h1 class="sender-name"><span id="sender"></span> यांच्याकडून दिवाळीच्या हार्दिक शुभेच्छा!</h1>
+        <div id="shareChain" style="display: none;"></div>
+        <div class="input-area">
+            <p>तुमचे नाव टाका आणि शुभेच्छा शेअर करा:</p>
+            <input type="text" id="viewerName" placeholder="तुमचे नाव इथे लिहा..." />
+        </div>
+        <div class="share-buttons">
+            <button id="whatsappShareBtn" class="whatsapp">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" /> WhatsApp
+            </button>
+            <button id="telegramShareBtn" class="telegram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/8/82/Telegram_logo.svg" alt="Telegram" /> Telegram
+            </button>
+            <button id="facebookShareBtn" class="facebook">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook" /> Facebook
+            </button>
+             <button id="xShareBtn" class="x-share">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.svg" alt="X" /> X (Twitter)
+            </button>
+            <button id="threadsShareBtn" class="threads">
+                 <img src="https://upload.wikimedia.org/wikipedia/commons/9/9d/Threads_%28app%29_logo.svg" alt="Threads" /> Threads
+            </button>
+            <button id="instagramShareBtn" class="instagram">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram" /> Instagram
+            </button>
+        </div>
+    </div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const defaultSender = "सुमित";
+        const senderSpan = document.getElementById('sender');
+        const shareChainDiv = document.getElementById('shareChain');
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const senderFromUrl = urlParams.get('sender');
+        const fromUrl = urlParams.get('from');
+
+        const currentSender = senderFromUrl ? decodeURIComponent(senderFromUrl) : defaultSender;
+        senderSpan.innerText = currentSender;
+
+        if(fromUrl) {
+            shareChainDiv.innerHTML = `ही शुभेच्छा तुमच्यापर्यंत <strong>${decodeURIComponent(fromUrl)}</strong> यांच्याकडून पोहोचली आहे.`;
+            shareChainDiv.style.display = 'block';
+        }
+
+        const viewerNameInput = document.getElementById('viewerName');
+
+        function createFallingElement(type, emoji) {
+            const element = document.createElement('div');
+            element.classList.add('falling-element', type);
+            element.innerHTML = emoji;
+            element.style.left = `${Math.random() * 100}vw`;
+            const duration = 5 + Math.random() * 7;
+            const delay = Math.random() * 5;
+            element.style.setProperty('--animation-duration', `${duration}s`);
+            element.style.setProperty('--animation-delay', `${delay}s`);
+            element.style.setProperty('--end-x', `${(Math.random() - 0.5) * 200}px`);
+            document.body.appendChild(element);
+            element.addEventListener('animationend', () => { element.remove(); });
+        }
+        for (let i = 0; i < 15; i++) createFallingElement('lotus', '🪷');
+        for (let i = 0; i < 10; i++) createFallingElement('firework', '✨');
+
+        const crackers = document.getElementById('crackers');
+        const burst1 = document.getElementById('burst1');
+        const burst2 = document.getElementById('burst2');
+        const crackSound = document.getElementById('crackSound');
+        crackers.addEventListener('click', () => {
+            burst1.style.animation = 'none';
+            burst1.offsetHeight;
+            burst1.style.animation = 'burst 0.7s forwards';
+            burst2.style.animation = 'none';
+            burst2.offsetHeight;
+            burst2.style.animation = 'burst 0.8s forwards';
+            crackSound.currentTime = 0;
+            crackSound.play();
+        });
+
+        const handleShare = (platform) => {
+            const newSenderName = viewerNameInput.value.trim();
+            if (newSenderName === "") {
+                alert("कृपया तुमचे नाव टाका!");
+                return;
+            }
+
+            const baseUrl = `${window.location.origin}${window.location.pathname}`;
+            const newUrlToShare = `${baseUrl}?sender=${encodeURIComponent(newSenderName)}&from=${encodeURIComponent(currentSender)}`;
+            
+            // --- UPDATED AND MORE ENGAGING MESSAGE BELOW ---
+            const message = `🪔 *${newSenderName}* यांच्याकडून तुम्हाला आणि तुमच्या परिवाराला दिवाळीच्या हार्दिक शुभेच्छा!\n\n🌼ही दिवाळी तुमच्या आयुष्यात सुख, समृद्धी आणि प्रकाश घेऊन येवो.\n\n ✨माझ्याकडून खास शुभेच्छा पाहण्यासाठी आणि तुमच्या नावाने पुढे पाठवण्यासाठी खालील लिंकवर क्लिक करा! 👇\n\n${newUrlToShare}`;
+            const textOnlyMessage = message.replace(/\*/g, "");
+
+            let shareUrl = '';
+
+            switch(platform) {
+                case 'whatsapp':
+                    shareUrl = `https://api.whatsapp.com/send?text=${encodeURIComponent(message)}`;
+                    break;
+                case 'telegram':
+                    shareUrl = `https://t.me/share/url?url=${encodeURIComponent(newUrlToShare)}&text=${encodeURIComponent(textOnlyMessage)}`;
+                    break;
+                case 'facebook':
+                    shareUrl = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(newUrlToShare)}`;
+                    break;
+                case 'x':
+                    shareUrl = `https://twitter.com/intent/tweet?url=${encodeURIComponent(newUrlToShare)}&text=${encodeURIComponent(textOnlyMessage)}`;
+                    break;
+                case 'threads':
+                     shareUrl = `https://www.threads.net/share?url=${encodeURIComponent(newUrlToShare)}&text=${encodeURIComponent(textOnlyMessage)}`;
+                    break;
+                case 'instagram':
+                    navigator.clipboard.writeText(textOnlyMessage).then(() => {
+                        alert("शुभेच्छा संदेश कॉपी झाला आहे! आता तुम्ही Instagram उघडून शेअर करू शकता.");
+                    }).catch(err => {
+                        alert("काहीतरी चूक झाली. कृपया संदेश मॅन्युअली कॉपी करा.");
+                    });
+                    return;
+            }
+            window.open(shareUrl, '_blank');
+        };
+
+        document.getElementById('whatsappShareBtn').addEventListener('click', () => handleShare('whatsapp'));
+        document.getElementById('telegramShareBtn').addEventListener('click', () => handleShare('telegram'));
+        document.getElementById('facebookShareBtn').addEventListener('click', () => handleShare('facebook'));
+        document.getElementById('xShareBtn').addEventListener('click', () => handleShare('x'));
+        document.getElementById('threadsShareBtn').addEventListener('click', () => handleShare('threads'));
+        document.getElementById('instagramShareBtn').addEventListener('click', () => handleShare('instagram'));
+    });
+</script>
